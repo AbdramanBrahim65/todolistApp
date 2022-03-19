@@ -1,0 +1,26 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="container">
+    <div class="h1">
+        <h1>Gestionnaire des tâches </h1>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="tache" class="tache" placeholder="         Entrer ici votre tâche svp !" required>
+        <input type="submit" value="Add" class="add">
+    </form>
+    <div class="taches">
+        {% for i in form %}
+        <ul>
+            <li>
+                {{i.tache|truncatewords:5}}
+
+            </li>
+        </ul>
+        <p class="heure">{{i.date_add|timesince}}</p>
+        <button><a href="{% url 'supprimer' i.id %}">Supprimer</a></button>
+        <hr> {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

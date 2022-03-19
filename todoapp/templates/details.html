@@ -1,0 +1,23 @@
+{% extends 'main.html'%} {% block title%} Détails {% endblock %} {% block content %}
+<style>
+    .container .taches {
+        margin-top: 4vw;
+    }
+</style>
+<div class="container">
+
+    <div class="h1">
+        <h1>Gestionnaire des tâches </h1>
+    </div>
+    <div class="taches">
+        <ul>
+            <li>
+                {{form.tache}}
+            </li>
+        </ul>
+        <p class="heure">{{form.date_add|timesince}}</p>
+        <button>add</button>
+    </div>
+
+</div>
+{% endblock %}
